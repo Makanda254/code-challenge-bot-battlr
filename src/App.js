@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import BotCollection from './components/BotCollection';
+import YourBotArmy from './components/YourBotArmy';
 
 function App() {
   const [bots, setBots] = useState([])
+  const [botArmy, setBotArmy] = useState([])
 
 
   useEffect(()=>{
@@ -17,11 +18,20 @@ function App() {
   
   //console.log(bots)
 
+  function handleAddBot(itemBot){
+    if (!botArmy.find((bot) => bot === itemBot)) {
+      const addedBots= bots.find((bot) => bot === itemBot)
+      setBotArmy([...botArmy, addedBots]);
+    }
+
+
+  }
+  
 
   return (
     <div>
-
-      <BotCollection bots={bots}/>
+      <YourBotArmy botArmy={botArmy} setBotArmy={setBotArmy}/>
+      <BotCollection bots={bots} onAddBot={handleAddBot}/>
     </div>
   );
 }

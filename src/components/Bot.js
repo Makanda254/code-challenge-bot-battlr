@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Bot({bot}) {
+export default function Bot({bot,onAddBot}) {
     console.log(bot)
+    
+    
   return (
-    <div>
+    <div onClick={() => onAddBot(bot)}>
         <img src={bot.avatar_url} alt="A Bot"/>
         <h3>{bot.name}</h3>
         <p>{bot.catchphrase}</p>
