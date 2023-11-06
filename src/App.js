@@ -23,14 +23,37 @@ function App() {
       const addedBots= bots.find((bot) => bot === itemBot)
       setBotArmy([...botArmy, addedBots]);
     }
-
-
   }
+
+  function handleRelease(id){
+    const upDatedBotArmy = botArmy.filter((bot) => bot.id !== id)
+    setBotArmy(upDatedBotArmy);
+  }
+
+  function handleDelete(bot){
+    fetch(`http://localhost:8001/bots/${bot}`,{
+      method: 'DELETE'
+    })
+    handleDischargeBotArmy(bot)
+    handleDischargeBot(bot)
+  }
+
+  function handleDischargeBotArmy(id){
+    const upDatedBotArmy = botArmy.filter((bot) => bot.id !== id)
+    setBotArmy(upDatedBotArmy);
+  }
+
+  function handleDischargeBot(id){
+    const upDatedBots = bots.filter((botItem) => botItem.id !== id)
+    setBots(upDatedBots)
+  }
+
+  
   
 
   return (
-    <div>
-      <YourBotArmy botArmy={botArmy} setBotArmy={setBotArmy}/>
+    <div className="container">
+      <YourBotArmy botArmy={botArmy}  onRelease={handleRelease} onDelete={handleDelete} />
       <BotCollection bots={bots} onAddBot={handleAddBot}/>
     </div>
   );

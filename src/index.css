@@ -24,3 +24,23 @@ body{
     height: 250px;
     object-fit: cover;
 }
+
+#bot-item{
+    position: relative;
+    padding: 3px 3px;
+    display: flex;
+    justify-content: space-around;
+    gap: 3px;
+    flex-wrap: wrap;
+    
+}
+
+#bot-card{
+    width: calc(100%/4- 5px);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    background: #f1f3f4;
+    
+   
+}

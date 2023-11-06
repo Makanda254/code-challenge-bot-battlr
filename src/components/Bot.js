@@ -5,8 +5,8 @@ export default function Bot({bot,onAddBot}) {
     
     
   return (
-    <div onClick={() => onAddBot(bot)}>
-        <img src={bot.avatar_url} alt="A Bot"/>
+    <div id="article" onClick={() => onAddBot(bot)}>
+        <img src={bot.avatar_url} alt="A Bot" />
         <h3>{bot.name}</h3>
         <p>{bot.catchphrase}</p>
         <div>

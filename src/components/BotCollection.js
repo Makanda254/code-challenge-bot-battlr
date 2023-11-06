@@ -7,7 +7,9 @@ export default function BotCollection({bots, onAddBot}) {
   return (
     <div>
         <h1>Bot Collection</h1>
+        <div id="section">
         {bots.map((bot) => <Bot key={bot.id} bot={bot} onAddBot={onAddBot}/>)}
+        </div>
     </div>
   )
 }

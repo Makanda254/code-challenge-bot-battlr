@@ -4,14 +4,16 @@ export default function YourBotArmy({botArmy, onRelease, onDelete}) {
   //console.log(botArmy)
 
   return (
-    <div>
+    <div >
+      <h1>My Army</h1>
+    <div id='bot-item'>
       {
         botArmy.map((itemBot) => (
-          <div key={itemBot.id}>
+          <div id='bot-card' key={itemBot.id}>
             <div onClick={(e) => {
               e.preventDefault();
               onRelease(itemBot.id)}}>
-             <h1>Your Bot Army</h1>
+             <p>Enlisted!</p>
              <img src={itemBot.avatar_url} alt="A Bot"/>
              <h3>{itemBot.name}</h3>
              <p>{itemBot.catchphrase}</p>
@@ -21,11 +23,12 @@ export default function YourBotArmy({botArmy, onRelease, onDelete}) {
               <p>Armor:{itemBot.armor}</p>
              </div>
              </div>
-             <button onClick={(e) => {
+             <button className='bg-danger' onClick={(e) => {
               e.preventDefault();
               onDelete(itemBot.id)}}>x</button>
             
           </div>
+          
         ))
       }
 
@@ -33,6 +36,7 @@ export default function YourBotArmy({botArmy, onRelease, onDelete}) {
 
 
 
+    </div>
     </div>
   )
 }
